@@ -1,0 +1,42 @@
+<h1>Students</h1>
+
+<label><button class="btn btn-default">+</button> Add New Student</label>
+
+<form>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input ng-model="studentObject.name" class="form-control" type="text" id="name"/>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input ng-model="studentObject.email" class="form-control"type="text" id="email"/>
+  </div>
+
+  <div class="form-group">
+    <label for="hours">Hours:</label>
+    <input ng-model="studentObject.hours" class="form-control" type="number" id="hours"/>
+  </div>
+
+  <div class="form-group">
+    <label for="unavailability">Times Unavailable:</label>
+    <div ng-repeat="singleTimeOff in studentObject.unavailability">
+      <input ng-model="singleTimeOff.start" type="time" id="unavailability"/>
+      <input ng-model="singleTimeOff.end" type="time" id="unavailability"/>
+      <div class="checkbox">
+        <label><input ng-model="singleTimeOff.sunday" type="checkbox" id="unavailability"/>S |</label>
+        <label><input ng-model="singleTimeOff.monday" type="checkbox" id="unavailability"/>M |</label>
+        <label><input ng-model="singleTimeOff.tuesday" type="checkbox" id="unavailability"/>Tu |</label>
+        <label><input ng-model="singleTimeOff.wednesday" type="checkbox" id="unavailability"/>W |</label>
+        <label><input ng-model="singleTimeOff.thursday" type="checkbox" id="unavailability"/>Th |</label>
+        <label><input ng-model="singleTimeOff.friday" type="checkbox" id="unavailability"/>F |</label>
+        <label><input ng-model="singleTimeOff.saturday" type="checkbox" id="unavailability"/>S</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label><button class="btn btn-default" ng-click="addTimeOffElement()">+</button> Add Unavailability </label>
+  </div>
+
+  <input type="submit" class="btn btn-success" ng-click="submit(studentObject)"/>
+</form>

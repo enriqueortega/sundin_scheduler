@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Sundin Scheduler</title>
+    <!-- scripts -->
+    <script type='text/javascript' src='./assets/vendors/scripts/angular.min.js'></script>
+    <script type='text/javascript' src='./assets/vendors/scripts/angular-route.min.js'></script>
+
+    <!-- custom scripts -->
+    <script type='text/javascript' src='./assets/scripts/client.js'></script>
+    <script type='text/javascript' src='./assets/scripts/controllers/eventController.js'></script>
+    <script type='text/javascript' src='./assets/scripts/controllers/studentController.js'></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./assets/vendors/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/simple-sidebar.css">
+
+
+  </head>
+  <body>
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    Welcome, Silvester
+                </li>
+                <li>
+                    <a href="#events">Events</a>
+                </li>
+                <li>
+                    <a href="#students">Students</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                      <main ng-view>
+
+                      </main>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+  </body>
+</html>
