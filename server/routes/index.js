@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
+var events = require('./events.js');
+var students = require('./students.js');
 
 router.get('/*', function(req, res){
   var file = req.params[0] || "/views/index.html";
