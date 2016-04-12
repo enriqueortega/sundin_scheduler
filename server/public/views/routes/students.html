@@ -19,18 +19,27 @@
   </div>
 
   <div class="form-group">
+
     <label for="unavailability">Times Unavailable:</label>
-    <div ng-repeat="singleTimeOff in studentObject.unavailability">
-      <input ng-model="singleTimeOff.start" type="time" id="unavailability"/>
-      <input ng-model="singleTimeOff.end" type="time" id="unavailability"/>
-      <div class="checkbox">
-        <label><input ng-model="singleTimeOff.sunday" type="checkbox" id="unavailability"/>S |</label>
-        <label><input ng-model="singleTimeOff.monday" type="checkbox" id="unavailability"/>M |</label>
-        <label><input ng-model="singleTimeOff.tuesday" type="checkbox" id="unavailability"/>Tu |</label>
-        <label><input ng-model="singleTimeOff.wednesday" type="checkbox" id="unavailability"/>W |</label>
-        <label><input ng-model="singleTimeOff.thursday" type="checkbox" id="unavailability"/>Th |</label>
-        <label><input ng-model="singleTimeOff.friday" type="checkbox" id="unavailability"/>F |</label>
-        <label><input ng-model="singleTimeOff.saturday" type="checkbox" id="unavailability"/>S</label>
+    <div ng-repeat="singleTimeOff in studentObject.unavailability track by $index">
+      <div class="row">
+        <div class="col-md-3">
+          <input ng-model="singleTimeOff.start" type="time" class="form-control" id="unavailability"/>
+        </div>
+
+        <div class="col-md-3">
+          <input ng-model="singleTimeOff.end" type="time" class="form-control" id="unavailability"/>
+        </div>
+
+        <div class="checkbox col-md-6">
+          <label><input ng-model="singleTimeOff.sunday" type="checkbox" id="unavailability"/>S |</label>
+          <label><input ng-model="singleTimeOff.monday" type="checkbox" id="unavailability"/>M |</label>
+          <label><input ng-model="singleTimeOff.tuesday" type="checkbox" id="unavailability"/>Tu |</label>
+          <label><input ng-model="singleTimeOff.wednesday" type="checkbox" id="unavailability"/>W |</label>
+          <label><input ng-model="singleTimeOff.thursday" type="checkbox" id="unavailability"/>Th |</label>
+          <label><input ng-model="singleTimeOff.friday" type="checkbox" id="unavailability"/>F |</label>
+          <label><input ng-model="singleTimeOff.saturday" type="checkbox" id="unavailability"/>S</label>
+        </div>
       </div>
     </div>
   </div>
@@ -40,3 +49,24 @@
 
   <input type="submit" class="btn btn-success" ng-click="submit(studentObject)"/>
 </form>
+
+<h2>List O' Students</h2>
+
+<div ng-repeat="student in retrievedStudents.results">
+  <h3> {{ student.name }} </h3>
+  <p> Email: {{ student.email }} </p>
+  <p> Weekly Hours Requested: {{ student.hours }}</p>
+  <div ng-repeat="unavailable in student.unavailability">
+    <p><strong>Time Unavailable</strong></p>
+    <p> Start Time: {{ unavailable.start }} </p>
+    <p> End Time: {{ unavailable.end }} </p>
+    <p> Sunday: {{ unavailable.sunday }} </p>
+    <p> Monday: {{ unavailable.monday }} </p>
+    <p> Tuesday: {{ unavailable.tuesday }} </p>
+    <p> Wednesday: {{ unavailable.wednesday }} </p>
+    <p> Thursday: {{ unavailable.thursday }} </p>
+    <p> Friday: {{ unavailable.friday }} </p>
+    <p> Saturday: {{ unavailable.saturday }} </p>
+  </div>
+  <button type="button" class="btn btn-danger" ng-click="deleteStudent()">Delete</button>
+</div>

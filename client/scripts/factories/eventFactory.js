@@ -1,18 +1,19 @@
-myApp.factory('StudentFactory', ['$http', function($http){
+myApp.factory('EventFactory', ['$http', function($http){
+
   var data = {};
 
   var postData = function(data){
-    data.unavailability = angular.toJson(data.unavailability);
-    $http.post('/students', data).success(function(response){
+    $http.post('/events', data).success(function(response){
+
     });
   }
 
   var getData = function(){
-    return $http.get('/students').then(function(response){
+    return $http.get('/events').then(function(response){
       data.results = response.data;
       console.log(data.results);
     });
-  };
+  }
 
   return {
     data : data,
