@@ -1,3 +1,10 @@
+//test
+
+// myApp.controller('');
+
+//test
+
+
 myApp.controller('EventController', ['$scope', 'EventFactory', function($scope, EventFactory){
   console.log("Event Controller Fired, yo");
 

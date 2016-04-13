@@ -19,7 +19,11 @@
   "homepage": "https://github.com/enriqueortega/sundin_scheduler#readme",
   "dependencies": {
     "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-bootstrap": "^0.12.2",
     "angular-route": "^1.5.3",
+    "angular-smart-table": "^2.1.8",
+    "angular-touch": "^1.5.3",
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
@@ -28,6 +32,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "pg": "^4.5.2"
+    "pg": "^4.5.2",
+    "ui-bootstrap": "0.0.24"
   }
 }

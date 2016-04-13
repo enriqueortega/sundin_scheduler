@@ -1,6 +1,8 @@
 <h1>Students</h1>
 
-<label><button class="btn btn-default">+</button> Add New Student</label>
+                                    <!-- ng-click="open" -->
+  <label><button class="btn btn-default" ng-click="toggleModal()">+</button> Add New Student</label>
+
 
 <form>
   <div class="form-group">
@@ -51,6 +53,23 @@
 </form>
 
 <h2>List O' Students</h2>
+
+<table st-table="rowCollection" class="table table-striped">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Hours</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="student in retrievedStudents.results">
+		<td>{{student.name}}</td>
+		<td>{{student.email}}</td>
+		<td>{{student.hours}}</td>
+	</tr>
+	</tbody>
+</table>
 
 <div ng-repeat="student in retrievedStudents.results">
   <h3> {{ student.name }} </h3>

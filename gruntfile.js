@@ -31,9 +31,15 @@ module.exports = function(grunt) {
           "angular/angular.min.js",
           "angular/angular.min.js.map",
           "angular/angular-csp.css",
-          "angular-route/angular-route.min.js"
+          "angular-route/angular-route.min.js",
+          "angular-route/angular-route.min.js.map",
+          "angular-smart-table/dist/smart-table.min.js",
+          "angular-smart-table/dist/smart-table.min.js.map",
+          "angular-bootstrap/ui-bootstrap.min.js",
+          "angular-animate/angular-animate.min.js",
+          "angular-animate/angular-animate.min.js.map"
         ],
-        "dest": "server/public/vendors/scripts/"
+        "dest": "server/public/assets/vendors/"
       },
       bootstrap: {
         expand: true,
@@ -44,7 +50,7 @@ module.exports = function(grunt) {
           "css/bootstrap.css"
           //"js/boostrap.min.js"
         ],
-        "dest": "server/public/vendors/bootstrap/"
+        "dest": "server/public/assets/vendors/bootstrap/"
       }
     }
   });

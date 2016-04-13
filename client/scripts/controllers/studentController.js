@@ -1,3 +1,10 @@
+//testing the things Kat sent muh way
+
+// myApp.controller();
+
+//test
+
+
 myApp.controller('StudentController', ['$scope', 'StudentFactory', function($scope, StudentFactory){
   $scope.studentObject = {};
   $scope.studentObject.unavailability = [{}];
@@ -25,8 +32,8 @@ myApp.controller('StudentController', ['$scope', 'StudentFactory', function($sco
       console.log("___________________");
       console.log($scope.retrievedStudents.results);
     });
-
   }
+
 
   $scope.init();
 }]);

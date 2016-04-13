@@ -1,5 +1,5 @@
 console.log("hi thar");
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'smart-table']);
 
 myApp.config(['$routeProvider', function($routeProvider){
   $routeProvider.
