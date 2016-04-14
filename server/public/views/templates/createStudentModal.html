@@ -1,18 +1,22 @@
+<div class="modal-header">
+  <h2>Add Student Form</h2>
+</div>
+
 <div class="modal-body">
   <form>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input ng-model="studentObject.name" class="form-control" type="text" id="name"/>
+      <input ng-model="studentObject.name" class="form-control" type="text" id="name" required/>
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input ng-model="studentObject.email" class="form-control"type="text" id="email"/>
+      <input ng-model="studentObject.email" class="form-control"type="text" id="email" required/>
     </div>
 
     <div class="form-group">
       <label for="hours">Hours:</label>
-      <input ng-model="studentObject.hours" class="form-control" type="number" id="hours"/>
+      <input ng-model="studentObject.hours" class="form-control" type="number" id="hours" required/>
     </div>
 
     <div class="form-group">
@@ -43,7 +47,10 @@
     <div class="form-group">
       <label><button class="btn btn-default" ng-click="addTimeOffElement()">+</button> Add Unavailability </label>
     </div>
-
-    <input type="submit" class="btn btn-success" ng-click="submit(studentObject)"/>
   </form>
+</div>
+
+<div class="modal-footer">
+  <input type="submit" class="btn btn-success" ng-click="submit(studentObject)"/>
+  <button class="btn" ng-click="cancel()"/>Cancel</button>
 </div>

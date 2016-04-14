@@ -79,4 +79,36 @@ router.get('/*', function(req, res){
   });
 });
 
+router.put("/*", function(req,res){
+  console.log("We're deleting the students");
+
+  console.log(req.body);
+
+  var id = req.body.studentId;
+
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      console.log('error connecting to DB:', err);
+      res.status(500).send(err);
+      done(); // Not sure which one of these is necessary
+      return;
+    }
+
+
+    var query = client.query('DELETE FROM students_table WHERE id = ($1);', [id]);
+
+    query.on('end', function(){
+      res.status(200).send("Successful Insertion of Student");
+      done();
+    });
+
+    query.on('error', function(error){
+      console.log("Error inserting student into DB:", error);
+      res.status(500).send(error);
+      done();
+    });
+  });
+});
+
+
 module.exports = router;
