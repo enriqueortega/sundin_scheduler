@@ -35,8 +35,6 @@ module.exports = function(grunt) {
           "angular-route/angular-route.min.js.map",
           "angular-smart-table/dist/smart-table.min.js",
           "angular-smart-table/dist/smart-table.min.js.map",
-          "angular-bootstrap/ui-bootstrap.min.js",
-          "angular-bootstrap/ui-bootstrap-tpls.min.js",
           "angular-bootstrap-npm/dist/angular-bootstrap.min.js",
           "angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
           "angular-ui-bootstrap/dist/ui-bootstrap.js",
@@ -51,15 +49,15 @@ module.exports = function(grunt) {
       },
       bootstrap: {
         expand: true,
-        cwd: "node_modules/bootstrap/dist/",
+        cwd: "node_modules/bootstrap/dist/css/",
         src: [
-          "css/bootstrap.min.css",
-          "css/bootstrap.min.css.map",
-          "css/bootstrap.css"
+          "bootstrap.min.css",
+          "bootstrap.min.css.map",
+          "bootstrap.css"
         ],
-        "dest": "server/public/assets/vendors/bootstrap/"
+        "dest": "server/public/assets/vendors/bootstrap"
       },
-      bootstrap: {
+      bootstrapGlyphicons: {
         expand: true,
         cwd: "node_modules/bootstrap/dist/",
         src: [
