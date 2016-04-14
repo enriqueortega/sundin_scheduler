@@ -1,8 +1,4 @@
-<div ng-controller="StudentController">
-  <h1>Students</h1>
-                                <!-- ng-click="open" -->
-    <label><button class="btn btn-default" ng-controller="StudentModalController" ng-click="open()">+</button> Add New Student</label>
-
+<div class="modal-body">
   <form>
     <div class="form-group">
       <label for="name">Name:</label>
@@ -50,48 +46,4 @@
 
     <input type="submit" class="btn btn-success" ng-click="submit(studentObject)"/>
   </form>
-
-  <h2>List O' Students</h2>
-
-  <table st-table="rowCollection" class="table table-striped">
-  	<thead>
-  	<tr>
-  		<th>Name</th>
-  		<th>Email</th>
-  		<th>Hours</th>
-  	</tr>
-  	</thead>
-  	<tbody>
-  	<tr ng-repeat="student in retrievedStudents.results">
-  		<td>{{student.name}}</td>
-  		<td>{{student.email}}</td>
-  		<td>{{student.hours}}</td>
-      <td>
-  			<button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
-  				<i class="glyphicon glyphicon-remove-circle">
-  				</i>
-  			</button>
-  		</td>
-  	</tr>
-  	</tbody>
-  </table>
-
-  <div ng-repeat="student in retrievedStudents.results">
-    <h3> {{ student.name }} </h3>
-    <p> Email: {{ student.email }} </p>
-    <p> Weekly Hours Requested: {{ student.hours }}</p>
-    <div ng-repeat="unavailable in student.unavailability">
-      <p><strong>Time Unavailable</strong></p>
-      <p> Start Time: {{ unavailable.start }} </p>
-      <p> End Time: {{ unavailable.end }} </p>
-      <p> Sunday: {{ unavailable.sunday }} </p>
-      <p> Monday: {{ unavailable.monday }} </p>
-      <p> Tuesday: {{ unavailable.tuesday }} </p>
-      <p> Wednesday: {{ unavailable.wednesday }} </p>
-      <p> Thursday: {{ unavailable.thursday }} </p>
-      <p> Friday: {{ unavailable.friday }} </p>
-      <p> Saturday: {{ unavailable.saturday }} </p>
-    </div>
-    <button type="button" class="btn btn-danger" ng-click="deleteStudent()">Delete</button>
-  </div>
 </div>

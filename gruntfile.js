@@ -36,6 +36,14 @@ module.exports = function(grunt) {
           "angular-smart-table/dist/smart-table.min.js",
           "angular-smart-table/dist/smart-table.min.js.map",
           "angular-bootstrap/ui-bootstrap.min.js",
+          "angular-bootstrap/ui-bootstrap-tpls.min.js",
+          "angular-bootstrap-npm/dist/angular-bootstrap.min.js",
+          "angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
+          "angular-ui-bootstrap/dist/ui-bootstrap.js",
+          "angular-ui-bootstrap/template/modal/backdrop.html",
+          "angular-ui-bootstrap/template/modal/backdrop.html.js",
+          "angular-ui-bootstrap/template/modal/window.html",
+          "angular-ui-bootstrap/template/modal/window.html.js",
           "angular-animate/angular-animate.min.js",
           "angular-animate/angular-animate.min.js.map"
         ],
@@ -48,9 +56,20 @@ module.exports = function(grunt) {
           "css/bootstrap.min.css",
           "css/bootstrap.min.css.map",
           "css/bootstrap.css"
-          //"js/boostrap.min.js"
         ],
         "dest": "server/public/assets/vendors/bootstrap/"
+      },
+      bootstrap: {
+        expand: true,
+        cwd: "node_modules/bootstrap/dist/",
+        src: [
+          "fonts/glyphicons-halflings-regular.eot",
+          "fonts/glyphicons-halflings-regular.svg",
+          "fonts/glyphicons-halflings-regular.ttf",
+          "fonts/glyphicons-halflings-regular.woff",
+          "fonts/glyphicons-halflings-regular.woff2"
+        ],
+        "dest": "server/public/assets/vendors/"
       }
     }
   });
