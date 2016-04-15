@@ -20,11 +20,6 @@ router.post("/*", function(req,res){
   var hours = req.body.hours;
   var unavailability = req.body.unavailability;
 
-  console.log('______________');
-  console.log(unavailability);
-  console.log('______________');
-
-
   pg.connect(connectionString, function(err, client, done){
     if (err) {
       console.log('error connecting to DB:', err);
@@ -82,8 +77,6 @@ router.get('/*', function(req, res){
 router.put("/*", function(req,res){
   console.log("We're deleting the students");
 
-  console.log(req.body);
-
   var id = req.body.studentId;
 
   pg.connect(connectionString, function(err, client, done){
@@ -93,7 +86,6 @@ router.put("/*", function(req,res){
       done(); // Not sure which one of these is necessary
       return;
     }
-
 
     var query = client.query('DELETE FROM students_table WHERE id = ($1);', [id]);
 
@@ -109,6 +101,5 @@ router.put("/*", function(req,res){
     });
   });
 });
-
 
 module.exports = router;

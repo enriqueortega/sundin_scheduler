@@ -1,10 +1,8 @@
 var studentID;
 
 myApp.controller('StudentModalController', ['$scope', '$uibModal', function($scope, $uibModal){
-  console.log("Student Modal");
 
   $scope.open = function () {
-    console.log("opening modal");
     var modalInstance = $uibModal.open({
       animation: true,
       templateUrl: './views/templates/createStudentModal.html',
@@ -38,20 +36,18 @@ myApp.controller('StudentModalInstance', ['$scope', '$uibModalInstance', 'Studen
   // Posting Student Information to DB
   $scope.submit = function(data){
     var sentData = angular.copy(data); // Creates a copy of the data to be sent that's not connected to the scope of the original data
-    StudentFactory.postData(sentData);
-    $scope.init();  // I think this is firing before the data gets into the DB..
-    $scope.cancel();
+    StudentFactory.postData(sentData).then(function(){
+      $scope.init();  // I think this is firing before the data gets into the DB..
+      $scope.cancel();
+    });
   }
 
   $scope.addTimeOffElement = function(){
-    console.log("Hit Add Unavailability, yo");
     var newObj = {};
     $scope.studentObject.unavailability.push(newObj);
   }
 
   $scope.init = function(){
-    console.log("Init Fire!");
-
     StudentFactory.getData().then(function(){
       return $scope.retrievedStudents = StudentFactory.data;
       console.log("___________________");
@@ -60,10 +56,9 @@ myApp.controller('StudentModalInstance', ['$scope', '$uibModalInstance', 'Studen
   }
 
   $scope.removeStudent = function(id) {
-    console.log('clicked');
-    console.log(studentID);
-    //TODO: Take Student ID and delete row from DB
     StudentFactory.deleteData(studentID);
+    $scope.init();
+    $scope.cancel();
   }
 
   $scope.storeId = function(id) {
@@ -76,5 +71,4 @@ myApp.controller('StudentModalInstance', ['$scope', '$uibModalInstance', 'Studen
   };
 
   $scope.init();
-
 }]);

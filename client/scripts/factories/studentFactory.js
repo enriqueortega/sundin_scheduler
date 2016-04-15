@@ -4,7 +4,7 @@ myApp.factory('StudentFactory', ['$http', function($http){
 
   var postData = function(data){
     data.unavailability = angular.toJson(data.unavailability);
-    $http.post('/students', data).success(function(response){
+    return $http.post('/students', data).success(function(response){
     });
   }
 
@@ -17,10 +17,7 @@ myApp.factory('StudentFactory', ['$http', function($http){
 
   var deleteData = function(studentId){
     id.studentId = studentId;
-    console.log("_____________-____________");
-    console.log(id);
     $http.put('/students', id).then(function(response){
-      console.log("We're trying to delete");
     });
   };
 
