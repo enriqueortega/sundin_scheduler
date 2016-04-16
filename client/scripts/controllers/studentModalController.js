@@ -7,7 +7,7 @@ myApp.controller('StudentModalController', ['$scope', '$uibModal', function($sco
       animation: true,
       templateUrl: './views/templates/createStudentModal.html',
       controller: 'StudentModalInstance',
-      size: "lg"
+      size: 'lg'
     });
 
     modalInstance.result.then(function (selectedItem) {
@@ -50,8 +50,6 @@ myApp.controller('StudentModalInstance', ['$scope', '$uibModalInstance', 'Studen
   $scope.init = function(){
     StudentFactory.getData().then(function(){
       return $scope.retrievedStudents = StudentFactory.data;
-      console.log("___________________");
-      console.log($scope.retrievedStudents.results);
     });
   }
 

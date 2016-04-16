@@ -3,10 +3,7 @@ myApp.controller('StudentController', ['$scope', 'StudentFactory', function($sco
   // $scope.studentObject.unavailability = [{}];
   $scope.retrievedStudents = [];
 
-
   $scope.init = function(){
-    console.log("Init Fire!");
-
     StudentFactory.getData().then(function(){
       $scope.retrievedStudents = StudentFactory.data;
     });

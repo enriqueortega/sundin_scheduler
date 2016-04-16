@@ -74,4 +74,32 @@ router.get('/*', function(req,res){
   });
 });
 
+router.put('/*', function(req,res){
+  console.log("We are deleting events, yo");
+  console.log(req.body);
+
+  var id = req.body.eventId;
+
+  pg.connect(connectionString, function(err, client, done){
+    if (err){
+      res.status(500).send(err);
+      done();
+      return;
+    }
+
+    var query = client.query('DELETE FROM events_table WHERE id = ($1);', [id]);
+
+    query.on('end', function(){
+      res.status(200).send("Successful Deletion of Event");
+      done();
+    });
+
+    query.on('error', function(error){
+      console.log("Error deleting event:", error);
+      res.send(500).send(error);
+      done();
+    });
+  });
+});
+
 module.exports = router;

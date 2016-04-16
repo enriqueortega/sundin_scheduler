@@ -90,12 +90,12 @@ router.put("/*", function(req,res){
     var query = client.query('DELETE FROM students_table WHERE id = ($1);', [id]);
 
     query.on('end', function(){
-      res.status(200).send("Successful Insertion of Student");
+      res.status(200).send("Successful Deletion of Student");
       done();
     });
 
     query.on('error', function(error){
-      console.log("Error inserting student into DB:", error);
+      console.log("Error deleting student:", error);
       res.status(500).send(error);
       done();
     });

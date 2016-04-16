@@ -1,6 +1,7 @@
 myApp.factory('EventFactory', ['$http', function($http){
 
   var data = {};
+  var id = {};
 
   var postData = function(data){
     $http.post('/events', data).success(function(response){
@@ -15,9 +16,17 @@ myApp.factory('EventFactory', ['$http', function($http){
     });
   }
 
+  var deleteData = function(eventId){
+    id.eventId = eventId;
+    $http.put('/events', id).then(function(response){
+      console.log("Attempting to Delete Event");
+    });
+  };
+
   return {
     data : data,
     getData : getData,
-    postData : postData
+    postData : postData,
+    deleteData : deleteData
   };
 }]);
